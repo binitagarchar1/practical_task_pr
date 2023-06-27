@@ -1,0 +1,20 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+// import { authenticateToken, authorizeRole } from '../middleware/authMiddleware';
+const ProductController_1 = __importDefault(require("../controllers/ProductController"));
+const router = (0, express_1.Router)();
+// router.get('/', authenticateToken, authorizeRole('admin', 'customer'), productController.getAllProducts);
+// router.get('/:id', authenticateToken, authorizeRole('admin', 'customer'), productController.getProductById);
+// router.post('/', authenticateToken, authorizeRole('admin'), productController.createProduct);
+// router.put('/:id', authenticateToken, authorizeRole('admin'), productController.updateProduct);
+// router.delete('/:id', authenticateToken, authorizeRole('admin'), productController.deleteProduct);
+router.get('/', ProductController_1.default.getAllProducts);
+router.get('/:id', ProductController_1.default.getProductById);
+router.post('/', ProductController_1.default.createProduct);
+router.put('/:id', ProductController_1.default.updateProduct);
+router.delete('/:id', ProductController_1.default.deleteProduct);
+exports.default = router;
